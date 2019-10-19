@@ -59,7 +59,7 @@ WIP
 
 ### Database of universities and technical institutes
 
-A minimal database has been created so the application can match the affected areas with potential help sources. **Such database has been compiled as a `.csv` file, and includes some universities and institutes of technology from all over the world.** Although the names, addresses and specialities are real, **the contact persons and their titles are fictional** (for privacy reasons).
+A [minimal database](assets/db-universities-and-tech-institutes.csv) has been created so the application can match the areas at risk with the potential help sources. **Such database has been compiled as a `.csv` file, and includes some universities and institutes of technology from all over the world.** Although the names, addresses and specialities are real, **the contact persons and their titles are fictional** (for privacy reasons).
 
 The columns `drought`, `flood`, `hunger.medical` and `natural.disasters` indicate if each institution could effectively provide assistance in those emergency situations. For example, a `TRUE` in `hunger.medical` would mean that the institution in particular can support population suffering from hunger and/or in need of medical assistance. However, a `FALSE` in `flood` would mean that the institution doesn't count with enough resources or the right speciality to support flooded areas.
 
@@ -106,6 +106,7 @@ WIP
 ## To do
 
 * Everything.
+* Solution architecture.
 * Add hunger dataset to the docs.
 * Document the R/Shiny application.
 * Clean up the data conversion section.
