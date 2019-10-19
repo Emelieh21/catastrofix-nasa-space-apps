@@ -44,6 +44,7 @@ temp/*
 temp*
 assets/clean_images/
 .idea/
+.Rhistory
 
 # npm modules #
 ###############
