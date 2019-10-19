@@ -35,11 +35,11 @@ df <- subset(df, !CONTINENT %in% c("North America", "Oceania", "Europe"))
 # taking georgia and cyprus out for now, because the place names returned by HERE API are unreadable
 df <- subset(df, !COUNTRY %in% c("Georgia","Cyprus"))
 
-# spatially cluster settlements and remove points that are basically the same point
+
 lat<-df$LAT
 lon<-df$LON
 data=data.frame(lat,lon)
-
+# spatially cluster settlements and remove points that are basically the same point
 library(geosphere)
 library(fields)
 dist <- rdist.earth(data, miles = F,R=6371) #dist <- dist(data) if data is UTM

@@ -1,0 +1,23 @@
+"university","address","specialities","contact.person","title","drought","flood","hunger.medical","natural.disasters","lat","lon"
+"TU Berlin - Campus El Gouna","Mohamed Ibrahim Kamel St, Hurghada, Red Sea Governorate 84513, Egypt","Water Engineering","Prof. Ruthann Berquist","Coordinator",TRUE,TRUE,FALSE,TRUE,27.40192,33.67014
+"University of Twente","5, Drienerlolaan, 7522 NB Enschede, Netherlands","Civil Engineering, Water Engineering, Medicine","Dr. Etsuko Markovich","Coordinator",TRUE,TRUE,TRUE,TRUE,52.23973,6.85009
+"Tokyo Institute of Technology","2 Chome-12-1 Ookayama, Meguro City, Tokyo 152-8550, Japan","Structural Engineering, Electrical Engineering","Eng. Leonore Stuckey","Dept. Head",FALSE,TRUE,FALSE,TRUE,35.63564,139.64607
+"Universiti Teknologi MARA","Kolej Amira Uitm Puncak Alam Road, 42300 Shah Alam, Selangor, Malaysia","Civil Engineering","Dr. Johnny Armer","Dept. Chairman",FALSE,TRUE,FALSE,TRUE,3.2372,101.424
+"Tennessee Tech University","1 William L Jones Dr, Cookeville, TN 38505, United States","Civil Engineering, Electrical Engineering, Medicine","Eng. Faviola Gehring","Dept. Head",TRUE,TRUE,TRUE,TRUE,36.1743,-85.50412
+"KU Leuven","Herestraat 49, 3001 Leuven, Belgium","Civil Engineering, Electrical Engineering, Medicine","Dr. Keva Mercedes","Dept. Head",TRUE,TRUE,TRUE,TRUE,50.8825112,4.6748709
+"Universidad de Mendoza","Av. Boulogne Sur Mer 683, M5500 Mendoza, Argentina","Medicine","Dr. Dallas Leitzel","Coordinator",FALSE,FALSE,TRUE,FALSE,-32.8912439,-68.862112
+"Tsinghua University","30 Shuangqing Rd, Haidian, Beijing, China","Electrical Engineering, Civil Engineering","Eng. Burton Calandra","Dept. Head",TRUE,TRUE,FALSE,TRUE,39.90657,116.38766
+"National Taiwan University","No. 1, Section 4, Roosevelt Rd, Da’an District, Taipei City, Taiwan 10617","Electrical Engineering, Medicine","Dr. Antonetta Goodner","Coordinator",TRUE,FALSE,TRUE,TRUE,25.0150122,121.5342126
+"National University of Singapore","21 Lower Kent Ridge Rd, Singapore 119077","Electrical Engineering, Medicine","Prof. Tamala Mullins","Dept. Head",FALSE,FALSE,FALSE,TRUE,1.2972,103.77776
+"Tecnológico de Monterrey","Av. Eugenio Garza Sada 2501 Sur, Tecnológico, 64849 Monterrey, N.L., Mexico","Electrical Engineering, Medicine, Civil Engineering","Eng. Brinda Troupe","Dept. Head",TRUE,FALSE,TRUE,TRUE,25.651145,-100.292045
+"ETH Zürich","Rämistrasse 101, 8092 Zürich, Switzerland","Medicine, Electrical Engineering, Civil Engineering","Prof. Candi Hofland","Coordinator",TRUE,FALSE,TRUE,TRUE,47.37623,8.54881
+"Instituto de Hidráulica Ambiental de Cantabria","Parque Científico y Tecnológico de Cantabria, Calle Isabel Torres, 15, 39011 Santander, Cantabria, Spain","Water Engineering, Hidraulics","Dr. Eduardo Cortés","Dept. Head",TRUE,TRUE,FALSE,FALSE,43.4549,-3.86802
+"KAIST","291 Daehak-ro, Eoeun-dong, Yuseong-gu, Daejeon, South Korea","Electrical Engineering, Civil and Environmental Engineering, Medicine","Dr. Kit Prettyman","Dept. Head",TRUE,TRUE,TRUE,TRUE,36.33448,127.43732
+"Obafemi Awolowo University","220005, Ife, Nigeria","Medicine","Eng. Lori Arbour","Coordinator",TRUE,FALSE,TRUE,FALSE,7.48301,4.55967
+"University of the Witwatersrand, Johannesburg","R25M+84 Johannesburg, South Africa","Civil and Environmental Engineering, Medicine","Eng. Julee Tyrrell","Dept. Head",FALSE,TRUE,TRUE,TRUE,-26.09187,28.11318
+"Universidad Técnica Particular de Loja","San Cayetano Alto, Calle París, Loja, Ecuador","Civil and Environmental Engineering, Medicine","Eng. Jone Bono","Dept. Chairman",TRUE,FALSE,TRUE,FALSE,-3.98549,-79.19736
+"Maastricht University","Minderbroedersberg 4-6, 6211 LK Maastricht, Netherlands","Medical","Prof. Jan Visser","Dept. Chairman",FALSE,FALSE,TRUE,TRUE,50.84704,5.68656
+"Mongolian Academy of Sciences","Prime Minister A.Amar St 15, Ulaanbaatar 14200, Mongolia","Geoecology","Eng. Tsakhiagiin Batukhan ","Coordinator",TRUE,TRUE,FALSE,FALSE,47.920074,106.921803
+"Universidad Tecnológica del Perú - Lima Centro","Av. Arequipa 265, Cercado de Lima 15046, Peru","Civil Engineering, Biomedical Engineering, Electrical Engineering","Dr. Carlota Berciano","Dept. Head",TRUE,TRUE,TRUE,FALSE,-12.0666178,-77.0370387
+"Universidad de Antioquia","Cl. 67 ##53-108, Medellín, Antioquia, Colombia","Medicine, Pharmaceutical and Food Sciences","Eng. Magdalena Wilmer-Pérez","Dept. Head",TRUE,FALSE,TRUE,TRUE,6.267823,-75.56882
+"Universidad de Chile","Av Libertador Bernardo O'Higgins 1058, Santiago, Región Metropolitana, Chile","Medicine, Civil Engineering, Urbanism","Prof. María Fernández","Coordinator",FALSE,FALSE,TRUE,TRUE,-33.44414,-70.6513499
