@@ -36,6 +36,16 @@ A detailed explanation of the conversion procedure can be found in the [next sec
 * Converted data set (in this repository): [`data/gdfldmrt-flood`](data/gdfldmrt-flood)
 * Raw source: [NASA SEDAC, Columbia University](https://sedac.ciesin.columbia.edu/data/set/ndh-flood-mortality-risks-distribution)
 
+### Global landslide mortality risks and distribution
+
+* Converted data set (in this repository): [`data/gdlndmrt-landslide`](data/gdlndmrt-landslide)
+* Raw source: [NASA SEDAC, Columbia University](https://sedac.ciesin.columbia.edu/data/set/ndh-landslide-mortality-risks-distribution)
+
+### Global cyclone mortality risks and distribution
+
+* Converted data set (in this repository): [`data/gdcycmrt-cyclone`](data/gdcycmrt-cyclone)
+* Raw source: [NASA SEDAC, Columbia University](https://sedac.ciesin.columbia.edu/data/set/ndh-cyclone-mortality-risks-distribution)
+
 ## Data conversion
 
 **ATTENTION: This section is a work in progress!**
@@ -79,9 +89,9 @@ WIP
 ## To do
 
 * Everything.
-* Download and convert cyclone mortality data.
-* Download and convert landslide mortality data.
 * Add new datasets to the docs.
+* Document the R/Shiny application.
+* Clean up the data conversion section.
 
 ## License
 
