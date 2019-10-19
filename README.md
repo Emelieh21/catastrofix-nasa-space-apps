@@ -6,7 +6,7 @@ _A project by Emelie Hofland and Jaime González-Arintero for the [NASA Space Ap
 
 ## Introduction
 
-WIP
+Smashing SDGs by automatically matching places that need help with people that can help them.
 
 ## Presentation
 
@@ -18,21 +18,22 @@ WIP
 
 ![](assets/catastrofix-solution-architecture.png)
 
-## Prepared data sets
+## Data sets
 
-The following data sets have been **converted from [ESRI ASCII raster format](http://resources.esri.com/help/9.3/arcgisengine/java/GP_ToolRef/spatial_analyst_tools/esri_ascii_raster_format.htm) to [shapefiles](https://en.wikipedia.org/wiki/Shapefile)**.
-
-A detailed explanation of the conversion procedure can be found in the [next section](https://github.com/Emelieh21/catastrofix-nasa-space-apps#data-conversion).
+**NOTE:** Some of the following data sets have been **converted from [ESRI ASCII raster format](http://resources.esri.com/help/9.3/arcgisengine/java/GP_ToolRef/spatial_analyst_tools/esri_ascii_raster_format.htm) to [shapefiles](https://en.wikipedia.org/wiki/Shapefile)**. A detailed explanation of the conversion procedure can be found in the [next section](https://github.com/Emelieh21/catastrofix-nasa-space-apps#esri-ascii-raster-to-shapefile-conversion).
 
 ### Global earthquake mortality risks and distribution
+
 * Converted data set (in this repository): [`data/gdpgamrt-earthquake`](data/gdpgamrt-earthquake)
 * Raw source: [NASA SEDAC, Columbia University](https://sedac.ciesin.columbia.edu/data/set/ndh-earthquake-mortality-risks-distribution)
 
 ### Global drought mortality risks and distribution
+
 * Converted data set (in this repository): [`data/gddrgmrt-drought`](data/gddrgmrt-drought)
 * Raw source: [NASA SEDAC, Columbia University](https://sedac.ciesin.columbia.edu/data/set/ndh-drought-mortality-risks-distribution)
 
 ### Global flood mortality risks and distribution
+
 * Converted data set (in this repository): [`data/gdfldmrt-flood`](data/gdfldmrt-flood)
 * Raw source: [NASA SEDAC, Columbia University](https://sedac.ciesin.columbia.edu/data/set/ndh-flood-mortality-risks-distribution)
 
@@ -46,9 +47,25 @@ A detailed explanation of the conversion procedure can be found in the [next sec
 * Converted data set (in this repository): [`data/gdcycmrt-cyclone`](data/gdcycmrt-cyclone)
 * Raw source: [NASA SEDAC, Columbia University](https://sedac.ciesin.columbia.edu/data/set/ndh-cyclone-mortality-risks-distribution)
 
-## Data conversion
+### Subnational human development index
 
-**ATTENTION: This section is a work in progress!**
+* Data set (in this repository): [`data/GDL-SHDI-SHP-2-human-development-index`](data/GDL-SHDI-SHP-2-human-development-index)
+* Raw source: [Global Data Lab, Institute for Management Research, Radboud University](https://globaldatalab.org/shdi/shapefiles/)
+
+### Global rural-urban mapping (human settlements)
+
+* Data set (in this repository): [`data/gl_grumpv1_ppoints_shp-settlements`](data/gl_grumpv1_ppoints_shp-settlements)
+* Raw source: [NASA SEDAC, Columbia University](https://sedac.ciesin.columbia.edu/data/collection/grump-v1)
+
+### Database of universities and technical institutes
+
+A minimal database has been created so the application can match the affected areas with potential help sources. **Such database has been compiled as a `.csv` file, and includes some universities and institutes of technology from all over the world.** Although the names, addresses and specialities are real, **the contact persons and their titles are fictional** (for privacy reasons).
+
+The columns `drought`, `flood`, `hunger.medical` and `natural.disasters` indicate if each institution could effectively provide assistance in those emergency situations. For example, a `TRUE` in `hunger.medical` would mean that the institution in particular can support population suffering from hunger and/or in need of medical assistance. However, a `FALSE` in `flood` would mean that the institution doesn't count with enough resources or the right speciality to support flooded areas.
+
+## ESRI ASCII raster to shapefile conversion
+
+**ATTENTION: Although all commands work, this section is a work in progress and still needs to be reviewed.**
 
 Download Miniconda.
 
@@ -89,7 +106,7 @@ WIP
 ## To do
 
 * Everything.
-* Add new datasets to the docs.
+* Add hunger dataset to the docs.
 * Document the R/Shiny application.
 * Clean up the data conversion section.
 
