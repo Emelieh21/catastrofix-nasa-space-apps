@@ -58,7 +58,7 @@ server <- function(input, output, session) {
     # generating message explaining the main risks of the selected place
     popup <<- paste0(
       "<b>",dat$address,"</b></br>",
-      "<em>Est. population of ",format(dat$ES00POP, big.mark="."),"</em></br>",
+      "<em>Est. population of ",format(dat$ES00POP, big.mark=".", decimal.mark = ","),"</em></br>",
       ifelse(!is.na(dat$flood_decile),
              ifelse(dat$flood_decile > 5, "<b>High risk</b> of floods</br>", "Risk of floods</br>"),""),
       ifelse(!is.na(dat$drought_decile),
