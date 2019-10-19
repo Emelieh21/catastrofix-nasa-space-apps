@@ -1,6 +1,18 @@
-university,address,speciality,contact person,title,drought,flood,hunger,natural disasters,medical aid
-TU Berlin - Campus El Gouna,"Mohamed Ibrahim Kamel St, Hurghada, Red Sea Governorate 84513, Egypt",Water Engineering,Prof. Ruthann Berquist  ,Coordinator,TRUE,TRUE,FALSE,TRUE,FALSE
-University of Twente,"5, Drienerlolaan, 7522 NB Enschede, Netherlands",Civil Engineering,Dr. Etsuko Markovich  ,Coordinator,TRUE,TRUE,FALSE,TRUE,FALSE
-University of Twente,"5, Drienerlolaan, 7522 NB Enschede, Netherlands",Water Engineering,Eng. Leonore Stuckey  ,Dept. Head,TRUE,TRUE,FALSE,TRUE,FALSE
-Universiti Teknologi MARA,"Kolej Amira Uitm Puncak Alam Road, 42300 Shah Alam, Selangor, Malaysia",Civil Engineering,Dr. Johnny Armer  ,Dept. Chairman,TRUE,TRUE,FALSE,TRUE,FALSE
-Tennessee Tech University,"1 William L Jones Dr, Cookeville, TN 38505, United States",Civil Engineering,Eng. Faviola Gehring  ,Dept. Head,TRUE,TRUE,FALSE,TRUE,FALSE
+university,address,specialities,contact.person,title,drought,flood,hunger.medical,natural.disasters
+TU Berlin - Campus El Gouna,"Mohamed Ibrahim Kamel St, Hurghada, Red Sea Governorate 84513, Egypt",Water Engineering,Prof. Ruthann Berquist,Coordinator,TRUE,TRUE,FALSE,TRUE
+University of Twente,"5, Drienerlolaan, 7522 NB Enschede, Netherlands","Civil Engineering, Water Engineering, Medicine",Dr. Etsuko Markovich,Coordinator,TRUE,TRUE,TRUE,TRUE
+Tokyo Institute of Technology,"2 Chome-12-1 Ookayama, Meguro City, Tokyo 152-8550, Japan","Structural Engineering, Electrical Engineering",Eng. Leonore Stuckey,Dept. Head,FALSE,TRUE,FALSE,TRUE
+Universiti Teknologi MARA,"Kolej Amira Uitm Puncak Alam Road, 42300 Shah Alam, Selangor, Malaysia",Civil Engineering,Dr. Johnny Armer,Dept. Chairman,FALSE,TRUE,FALSE,TRUE
+Tennessee Tech University,"1 William L Jones Dr, Cookeville, TN 38505, United States","Civil Engineering, Electrical Engineering, Medicine",Eng. Faviola Gehring,Dept. Head,TRUE,TRUE,TRUE,TRUE
+KU Leuven,"Herestraat 49, 3001 Leuven, Belgium","Civil Engineering, Electrical Engineering, Medicine",Dr. Keva Mercedes,Dept. Head,TRUE,TRUE,TRUE,TRUE
+Universidad de Mendoza,"Av. Boulogne Sur Mer 683, M5500 Mendoza, Argentina",Medicine,Dr. Dallas Leitzel,Coordinator,FALSE,FALSE,TRUE,FALSE
+Tsinghua University,"30 Shuangqing Rd, Haidian, Beijing, China","Electrical Engineering, Civil Engineering",Eng. Burton Calandra,Dept. Head,TRUE,TRUE,FALSE,TRUE
+National Taiwan University,"No. 1, Section 4, Roosevelt Rd, Da’an District, Taipei City, Taiwan 10617","Electrical Engineering, Medicine",Dr. Antonetta Goodner,Coordinator,TRUE,FALSE,TRUE,TRUE
+National University of Singapore,"21 Lower Kent Ridge Rd, Singapore 119077","Electrical Engineering, Medicine",Prof. Tamala Mullins,Dept. Head,FALSE,FALSE,FALSE,TRUE
+Tecnológico de Monterrey,"Av. Eugenio Garza Sada 2501 Sur, Tecnológico, 64849 Monterrey, N.L., Mexico","Electrical Engineering, Medicine, Civil Engineering",Eng. Brinda Troupe,Dept. Head,TRUE,FALSE,TRUE,TRUE
+ETH Zürich,"Rämistrasse 101, 8092 Zürich, Switzerland","Medicine, Electrical Engineering, Civil Engineering",Prof. Candi Hofland,Coordinator,TRUE,FALSE,TRUE,TRUE
+Instituto de Hidráulica Ambiental de Cantabria,"Parque Científico y Tecnológico de Cantabria, Calle Isabel Torres, 15, 39011 Santander, Cantabria, Spain","Water Engineering, Hidraulics",Dr. Eduardo Cortés,Dept. Head,TRUE,TRUE,FALSE,FALSE
+KAIST,"291 Daehak-ro, Eoeun-dong, Yuseong-gu, Daejeon, South Korea","Electrical Engineering, Civil and Environmental Engineering, Medicine",Dr. Kit Prettyman,Dept. Head,TRUE,TRUE,TRUE,TRUE
+Obafemi Awolowo University,"220005, Ife, Nigeria",Medicine,Eng. Lori Arbour,Coordinator,TRUE,FALSE,TRUE,FALSE
+"University of the Witwatersrand, Johannesburg","R25M+84 Johannesburg, South Africa","Civil and Environmental Engineering, Medicine",Eng. Julee Tyrrell,Dept. Head,FALSE,TRUE,TRUE,TRUE
+Universidad Técnica Particular de Loja,"San Cayetano Alto, Calle París, Loja, Ecuador","Civil and Environmental Engineering, Medicine",Eng. Jone Bono,Dept. Chairman,TRUE,FALSE,TRUE,FALSE
