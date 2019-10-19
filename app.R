@@ -59,6 +59,7 @@ server <- function(input, output, session) {
     popup <<- paste0(
       "<b>",dat$address,"</b></br>",
       "<em>Est. population of ",format(dat$ES00POP, big.mark=".", decimal.mark = ","),"</em></br>",
+      "</br>",
       ifelse(!is.na(dat$flood_decile),
              ifelse(dat$flood_decile > 5, "<b>High risk</b> of floods</br>", "Risk of floods</br>"),""),
       ifelse(!is.na(dat$drought_decile),
@@ -115,7 +116,8 @@ server <- function(input, output, session) {
     rank_matches <- match %>%
       group_by_at(names(match)[!names(match) %in% "reason"]) %>%
       summarise(count = n(),
-                percentage_match = paste0(round(count/length(relevant)*100,1),"%"))
+                percentage_match = paste0(round(count/length(relevant)*100,1),"%"),
+                radius_match = count/length(relevant)*10)
     
     # calculate distances of matches
     dist <- as.data.frame(distm(dat[,c("LON","LAT")], rank_matches[,c("lon","lat")], fun=distHaversine))
@@ -143,7 +145,7 @@ server <- function(input, output, session) {
       setView(dat$LON, dat$LAT, zoom = 4) %>%
       addMarkers(dat$LON, dat$LAT, popup = popup) %>%
       addCircleMarkers(rank_matches, lng = rank_matches$lon, lat = rank_matches$lat,
-                       radius = 3, popup = paste0("<b>",rank_matches$university,"</b></br>",
+                       radius = rank_matches$radius_match, popup = paste0("<b>",rank_matches$university,"</b></br>",
                                                   "<em>Specialities: ",rank_matches$specialities,"</em></br>",
                                                   "<b>Match: </b>",rank_matches$percentage_match,"</br>",
                                                   "<b>Distance: </b>",round(rank_matches$distance_km,1)," km"),
