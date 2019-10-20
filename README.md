@@ -20,8 +20,6 @@ A **live demo of the application**, hosted in Google Cloud, is available [**here
 
 ## Solution Architecture
 
-**NOTE:** As this is a hackathon and _time is the enemy_, unfortunately this section is a work in progress!
-
 ![](assets/catastrofix-solution-architecture.png)
 
 ## Data sets
