@@ -6,15 +6,19 @@ library(dplyr)
 library(geosphere)
 library(rgeos)
 library(RColorBrewer)
+library(readxl)
 
 # read in the data sets
 df <- readRDS("assets/catastrofix_subset.rds")
 help <- read.csv("assets/db-universities-and-tech-institutes-geocoded.csv",
                stringsAsFactors = F, encoding = "UTF-8")
+targets <- read_excel("assets/Official List of Proposed SDG Indicators-Excel file.xlsx")
+targets$target_code <-sub(" .*", "", targets$target)
 
 # initialize n & popup
 n <- NULL
 popup <- NULL
+rank_matches <- NULL
 
 ui <- dashboardPage(skin = "yellow",
                     dashboardHeader(title = "CATASTROFIX",
@@ -53,9 +57,10 @@ server <- function(input, output, session) {
   })
   observeEvent(input$random, {
     # picking a random place from df
+    # assign to global variable so we have the variable in the next observeEvent (not the most proper way)
     n <<- sample(x = c(1:nrow(df)), size = 1)
     dat <- df[n,]
-    # generating message explaining the main risks of the selected place
+    # generating message explaining the main risks of the selected place (assigning it to global to readd the marker in the next observeEvent)
     popup <<- paste0(
       "<b>",dat$address,"</b></br>",
       "<em>Est. population of ",format(dat$ES00POP, big.mark=".", decimal.mark = ","),"</em></br>",
@@ -126,6 +131,8 @@ server <- function(input, output, session) {
     dist1$distance_km <- dist1$t.dist./1000
     
     rank_matches <- merge(rank_matches, dist1, by="university", all.x=T)
+    # assign to global variable so we have the data in the next observeEvent (not the most proper way)
+    rank_matches <<- rank_matches
     
     p1<-as.matrix(dat[,c("LON","LAT")])
     p2<-as.matrix(rank_matches[,c("lon","lat")])
@@ -135,6 +142,7 @@ server <- function(input, output, session) {
                          n=100, 
                          addStartEnd=TRUE,
                          sp=T) 
+    df2_rownames <- row.names(df2)
 
     palette_rev <- rev(brewer.pal(5, "RdYlGn"))
     pal <- colorBin(palette = palette_rev, domain = rank_matches$distance_km)
@@ -152,11 +160,73 @@ server <- function(input, output, session) {
                        color = colors,
                        opacity = 1, fillOpacity = 1) %>%
       addPolylines(data = df2, weight = 3, color = colors,
-                   popup = "<button onclick='Shiny.onInputChange(\"button_click2\",  Math.random())' id='selectlocation' type='button' class='btn btn-default action-button'>Generate Proposal</button>")
+                   popup = paste0("<button onclick='Shiny.onInputChange(\"button_click2\",  ",df2_rownames,")' id='selectlocation' type='button' class='btn btn-default action-button'>Generate Proposal</button>"))
   })
   observeEvent(input$button_click2, {
     #### ADD PROPOSAL GENERATION HERE ####
     message("Clicked")
+    #print(input$button_click2)
+    
+    print(rank_matches[input$button_click2,])
+    u <- rank_matches[input$button_click2, ]
+    cols <- colnames(u)[colSums(u == TRUE) > 0]
+    cols <- cols[cols %in% targets$links_to]
+    
+    applicable_targets <- subset(targets, links_to %in% cols)
+    applicable_targets <- unique(applicable_targets$target)
+    dat <- df[n,]
+    
+    locality_info <- c(
+      ifelse(!is.na(dat$flood_decile),
+             ifelse(dat$flood_decile > 5, "a high risk of floods", "a hisk of floods"),""),
+      ifelse(!is.na(dat$drought_decile),
+             ifelse(dat$drought_decile > 5, "a high risk of drought", "a risk of drought"),""),
+      ifelse(!is.na(dat$earthquake_decile),
+             ifelse(dat$earthquake_decile > 5, "a high risk of earthquakes", "a risk of earthquakes"),""),
+      ifelse(!is.na(dat$landslide_decile),
+             ifelse(dat$landslide_decile > 5, "a high risk of landslides", "a risk of landslides"),""),
+      ifelse(!is.na(dat$cyclone_decile),
+             ifelse(dat$cyclone_decile > 5, "a high risk of cyclones", "a risk of cyclones"),""),
+      ifelse(!is.na(dat$underweight_perc),
+             ifelse(dat$underweight_perc > 10, "a high percentage of underweight children (more than 10%)", "a percentage of underweight children under 10%"),"")
+    )
+    locality_info <- paste(locality_info[locality_info != ""], collapse = " and ")
+    
+    text <- paste0(
+      u$university,"</br>",
+      gsub("\\,",",</br>",u$address),"</br>",
+      "</br>",
+      Sys.Date(),"</br>",
+      "</br>",
+      "Dear ",u$contact.person,",</br>",
+      "</br>",
+      "We are writing you to announce that we have found a project opportunity in which your university can play a key role.</br>",
+      "With this project your university will contribute to fulfilling ",length(applicable_targets)," targets of the United Nations SDGs (Sustainable Development Goals).</br>",
+      "</br>",
+      "We have spotted a vulnarable settlement in ",dat$COUNTRY,", that needs people with expertise in ",u$specialities,".</br>",
+      "It concerns a small rural settlement with a population of estimated ",dat$ES00POP,".</br>",
+      "It struggles with ",locality_info,".",
+      "</br>",
+      "This place in ",dat$address," lies on a ",round(u$distance_km,1)," km distance from your faculty.</br>",
+      "</br>",
+      "You can apply for project funding via <a href='ohnobrokenlink' target='_blank'>this link</a>.</br>",
+      "This project aligns to the following SDGs targets: </br>",
+      paste(paste0("<li>",applicable_targets,"</li>"),collapse = ""),
+      "We hope you will support us in our goal of making the world sustainable by 2030!</br>",
+      "In case of further questions, don't contact us, because this is an automatically generated email.<br>",
+      "</br>",
+      "Kind Regards,</br>",
+      "</br>",
+      "CatastroFix"
+    )
+    fileConn<-file("www/proposal.html")
+    writeLines(text[1], fileConn)
+    close(fileConn)
+    
+    showModal(modalDialog(
+      title = "Important message",
+      HTML("Your proposal is <a href='proposal.html' target='_blank'>here</a>.")
+    ))
   })
 }
 shinyApp(ui, server)
