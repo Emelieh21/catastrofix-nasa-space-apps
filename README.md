@@ -8,13 +8,19 @@ _A project by Emelie Hofland and Jaime González-Arintero for the [NASA Space Ap
 
 Smashing SDGs by automatically matching places that need help with people that can help them.
 
+![](assets/screenshot-match-emphasis.png)
+
+## Live demo
+
+A **live demo of the application**, hosted in Google Cloud, is available [**here**](http://35.234.111.112:4321).
+
 ## Presentation
 
-WIP
+**NOTE:** As this is a hackathon and _time is the enemy_, unfortunately this section is a work in progress!
 
 ## Solution Architecture
 
-WIP
+**NOTE:** As this is a hackathon and _time is the enemy_, unfortunately this section is a work in progress!
 
 ![](assets/catastrofix-solution-architecture.png)
 
@@ -67,49 +73,120 @@ The columns `drought`, `flood`, `hunger.medical` and `natural.disasters` indicat
 
 **ATTENTION: Although all commands work, this section is a work in progress and still needs to be reviewed.**
 
-Download Miniconda.
+### Installation and configuration
 
-Install Miniconda:
+The tool `gdal` is required for the format conversion, available via Anaconda or Miniconda.
 
-    sh Miniconda3-latest-MacOSX-x86_64.sh
+1. To get started, download the Miniconda install script.
 
-Close and reopen the terminal.
+2. Install Miniconda running the provided script:
 
-Install `gdal`:
+		sh Miniconda3-latest-MacOSX-x86_64.sh
 
-    conda install -c conda-forge gdal
+3. Close terminal, and open a new one, so the new aliases are available.
 
-Create Conda environment:
+4. Install `gdal` using the `conda` package manager:
 
-    conda create --yes --channel conda-forge --name TEST gdal
+		conda install -c conda-forge gdal
 
-Activate it:
+5. Create a `conda` environment; in this case it's named "_CONVERSION_":
 
-    conda activate TEST
+		conda create --yes --channel conda-forge --name CONVERSION gdal
 
-Import `gdal` in Python:
+6. Activate it:
 
-    python -c 'import gdal;print(dir(gdal))'
+		conda activate CONVERSION
 
-Invoke `gdal` to convert ESRI ASCII rasters to shapefiles:
+7. Finally, `gdal` can be imported in Python:
+
+		python -c 'import gdal;print(dir(gdal))'
+
+### Conversion
+
+Files can now be converted innvoking `gdal` from the `conda` environment, by means of the `gdal_polygonize.py` tool:
 
     gdal_polygonize.py -f "ESRI Shapefile" input-esri-ascii.asc output-shapefile.shp
+    
+The output shapefiles can now be easily imported in R.
 
-## Technical setup
+**NOTE:** Data sets that required pre-processing have already been converted, and their shapefiles can be found in the ["data sets" section](https://github.com/Emelieh21/catastrofix-nasa-space-apps#data-sets).
 
-WIP
+## Running the application locally
 
-### R/Shiny application
+### Installation
 
-WIP
+1. First of all, **install R** from the official source, depending on your operating system:
+
+ * [Windows](https://cran.r-project.org/bin/windows/)
+ * [OS X](https://cran.r-project.org/bin/macosx/)
+ * [Linux](https://cran.r-project.org/bin/linux/)
+
+2. Once ready, **install RStudio**, since it will be needed to run the app. Simply choose one of the [official installers](https://www.rstudio.com/products/rstudio/download/#download).
+
+3. Clone this repository to your machine (or skip this step if it was already done):
+
+		git clone https://github.com/Emelieh21/catastrofix-nasa-space-apps.git
+
+4. Open RStudio, and **run the following command** on the console window (at the bottom left corner) to install the required packages:
+
+		install.packages(c("shiny","shinydashboard","leaflet","dplyr","geosphere","rgeos","RColorBrewer", "readxl"))
+		
+	**NOTE:** This could take a few minutes, as the packages must be compiled for the target system.
+
+### Usage
+
+1. Head to the folder of the tool, where the repository was cloned, (e.g. `/Downloads/catastrofix-nasa-space-apps`).
+
+2. Open the file `app.R` with RStudio.
+
+3. Click on **"Run App"** (small green "play" button).
+
+## Hosting the application in Google Cloud
+
+### Installation and configuration
+
+**NOTE:** As this is a hackathon and _time is the enemy_, unfortunately this section is a work in progress!
+
+### Launching the application
+
+Once the repository has been cloned, head to its folder:
+
+    cd catastrofix-nasa-space-apps
+
+Now open the R interpreter on the VM with the command:
+
+    R
+    
+A session will open; the application can now be _served_ with:
+
+    shiny::runApp(host="[INTERNAL_IP_ADDRESS]",port=[PORT])
+
+For example, for this specific instance, the command was:
+
+    shiny::runApp(host="10.156.0.2",port=4321)
+
+<!--
+
+TO DOCUMENT:
+    nano run.R
+    Rscript run.R
+
+-->
+
+### Usage
+
+Once the application is up and running in the Google Cloud Compute Engine VM instance, it can be accessed from any device in the world, under a URL with the format: `http://[EXTERNAL_IP_ADDRESS]:[PORT]`
+
+For example, this particular instance can be accessed from:
+[`http://35.234.111.112:4321`](http://35.234.111.112:4321)
 
 ## To do
 
 * Everything.
 * Solution architecture.
 * Add hunger dataset to the docs.
-* Document the R/Shiny application.
-* Clean up the data conversion section.
+* Finish documenting the R/Shiny application.
+* Review the data conversion section.
 
 ## License
 
