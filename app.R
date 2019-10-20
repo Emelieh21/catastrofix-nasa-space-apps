@@ -165,9 +165,8 @@ server <- function(input, output, session) {
   observeEvent(input$button_click2, {
     #### ADD PROPOSAL GENERATION HERE ####
     message("Clicked")
-    #print(input$button_click2)
     
-    print(rank_matches[input$button_click2,])
+    # filter to the selected university
     u <- rank_matches[input$button_click2, ]
     cols <- colnames(u)[colSums(u == TRUE) > 0]
     cols <- cols[cols %in% targets$links_to]
@@ -192,15 +191,16 @@ server <- function(input, output, session) {
     )
     locality_info <- paste(locality_info[locality_info != ""], collapse = " and ")
     
-    text <- paste0(
+    text <- paste0("<div style = 'font-family: Calibri; font-size: 14px; margin-right:45%; margin-left:5%; margin-top:5%'>",
       u$university,"</br>",
       gsub("\\,",",</br>",u$address),"</br>",
       "</br>",
       Sys.Date(),"</br>",
       "</br>",
+      "</br>",
       "Dear ",u$contact.person,",</br>",
       "</br>",
-      "We are writing you to announce that we have found a project opportunity in which your university can play a key role.</br>",
+      "We are writing you to announce that we have found a project opportunity in which your university can play a key role. ",
       "With this project your university will contribute to fulfilling ",length(applicable_targets)," targets of the United Nations SDGs (Sustainable Development Goals).</br>",
       "</br>",
       "We have spotted a vulnarable settlement in ",dat$COUNTRY,", that needs people with expertise in ",u$specialities,".</br>",
@@ -209,17 +209,22 @@ server <- function(input, output, session) {
       "</br>",
       "This place in ",dat$address," lies on a ",round(u$distance_km,1)," km distance from your faculty.</br>",
       "</br>",
-      "You can apply for project funding via <a href='ohnobrokenlink' target='_blank'>this link</a>.</br>",
+      "You can apply for project funding via <a href='https://proposals.sdgfund.org/' target='_blank'>this link</a>.</br>",
       "This project aligns to the following SDGs targets: </br>",
+      "<ul style = 'list-style-position: outside;'>",
       paste(paste0("<li>",applicable_targets,"</li>"),collapse = ""),
+      "</ul>",
+      "</br>",
       "We hope you will support us in our goal of making the world sustainable by 2030!</br>",
       "In case of further questions, don't contact us, because this is an automatically generated email.<br>",
       "</br>",
       "Kind Regards,</br>",
       "</br>",
-      "CatastroFix"
+      "</br>",
+      "CatastroFix",
+      "</div>"
     )
-    fileConn<-file("www/proposal.html")
+    fileConn<-file("www/proposal.html", encoding = "utf8")
     writeLines(text[1], fileConn)
     close(fileConn)
     
