@@ -2,21 +2,21 @@
 
 ### By Team _Space Cake_
 
-_A project by Emelie Hofland and Jaime González-Arintero for the [NASA Space Apps Challenge Hackathon 2019](https://2019.spaceappschallenge.org/locations/berlin-germany/) in Berlin, on October 18-20, 2019._
+_A project by Emelie Hofland and Jaime González-Arintero for the [NASA Space Apps Challenge 2019](https://2019.spaceappschallenge.org/locations/berlin-germany/) in Berlin, on October 18-20, 2019._
 
 ## Introduction
 
-Smashing SDGs by automatically matching places that need help with people that can help them.
+_"[Smashing SDGs](https://2019.spaceappschallenge.org/challenges/living-our-world/smash-your-sdgs) by automatically matching places that need help with people that can help."_
 
-![](assets/screenshot-match-emphasis.png)
+**CatastroFix** finds remote human settlements with high risk of natural disasters by means of NASA satellite data. Then, it looks for partners that could help local communities to become more resilient to such risks. Finally, it generates proposals aligned with the targets of the [Sustainable Development Goals](https://www.undp.org/content/undp/en/home/sustainable-development-goals.html).
+
+**The video pitch is available in YouTube.** Just click on the picture below.
+
+[![CatastroFix by Team Space Cake](assets/screenshot-match-emphasis.png)](https://www.youtube.com/watch?v=kB89F4hvsL8)
 
 ## Live demo
 
 A **live demo of the application**, hosted in Google Cloud, is available [**here**](http://35.234.111.112:4321).
-
-## Presentation
-
-**NOTE:** As this is a hackathon and _time is the enemy_, unfortunately this section is a work in progress!
 
 ## Solution Architecture
 
@@ -139,11 +139,32 @@ The output shapefiles can now be easily imported in R.
 
 3. Click on **"Run App"** (small green "play" button).
 
+<!--
+
 ## Hosting the application in Google Cloud
 
-### Installation and configuration
+### System configuration
 
-**NOTE:** As this is a hackathon and _time is the enemy_, unfortunately this section is a work in progress!
+
+
+**IMPORTANT:** The GEOS library (`libgeos`) is required for one of the used R packages (`rgeos`). Thus, it must be installed upfront. Otherwise R will fail to install all the required packages. This can be done with the following command:
+
+    sudo apt-get install libgeos++-dev
+
+Once ready, install R
+
+### Installing R
+
+1. Once ready, to install R run:
+
+		
+
+2. Open R:
+
+3. To install all required packages, execute:
+
+		install.packages(c("shiny","shinydashboard","leaflet","dplyr","geosphere","rgeos","RColorBrewer", "readxl"))
+
 
 ### Launching the application
 
@@ -163,13 +184,12 @@ For example, for this specific instance, the command was:
 
     shiny::runApp(host="10.156.0.2",port=4321)
 
-<!--
 
 TO DOCUMENT:
     nano run.R
     Rscript run.R
 
--->
+
 
 ### Usage
 
@@ -178,12 +198,12 @@ Once the application is up and running in the Google Cloud Compute Engine VM ins
 For example, this particular instance can be accessed from:
 [`http://35.234.111.112:4321`](http://35.234.111.112:4321)
 
+-->
+
 ## To do
 
-* Everything.
-* Solution architecture.
 * Add hunger dataset to the docs.
-* Finish documenting the R/Shiny application.
+* Finish documenting the deployment in Google Cloud.
 * Review the data conversion section.
 
 ## License
