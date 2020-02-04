@@ -2,7 +2,7 @@
 
 ### By Team _Space Cake_
 
-_A project by Emelie Hofland and Jaime González-Arintero for the [NASA Space Apps Challenge 2019](https://2019.spaceappschallenge.org/locations/berlin-germany/) in Berlin, on October 18-20, 2019._
+_A [project](https://2019.spaceappschallenge.org/challenges/living-our-world/smash-your-sdgs/teams/space-cake/project) by Emelie Hofland and Jaime González-Arintero for the [NASA Space Apps Challenge 2019](https://2019.spaceappschallenge.org/locations/berlin-germany/) in Berlin, on October 18-20, 2019._
 
 ## Introduction
 
